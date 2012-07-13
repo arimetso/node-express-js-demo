@@ -1,0 +1,61 @@
+doctype 5
+html
+    head
+        title #{title}
+        link(rel="stylesheet", href="/static/css/bootstrap.css")
+        style body { padding-top: 60px; }
+    body
+        div.navbar.navbar-fixed-top
+            div.navbar-inner
+                div.container
+                    a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.brand(href="#") Demofactory
+                    div.btn-group.pull-right
+                        - if (user)
+                            a.btn.dropdown-toggle(data-toggle="dropdown", href="#")
+                                i.icon-user
+                                |&nbsp;Username&nbsp;
+                                span.caret
+                            ul.dropdown-menu
+                                li
+                                    a(href="#") Profile
+                                li.divider
+                                li
+                                    a(href="#") Sign Out
+                        -else
+                            a#signin.btn(href="#") Sign in &hellip;
+                    div.nav-collapse
+                        ul.nav
+                            li.active
+                                a(href="#") Home
+                            li
+                                a(href="#about") About
+                            li
+                                a(href="#contact") Contact
+        div.container
+            h1 #{title}
+            p Example content.
+        div#signin-modal.modal.hide
+            div.modal-header
+                button.close(data-dismiss="modal") &times;
+                h3 Sign in
+            div.modal-body
+                form.form-horizontal
+                    fieldset
+                        div.control-group
+                            label.control-label(for="login_name") Login name
+                            div.controls
+                                input#login_name.input-large(type="text", name="login_name")
+                        div.control-group
+                            label.control-label(for="login_passwd") Password
+                            div.controls
+                                input#login_passwd.input-large(type="password", name="login_passwd")
+            div.modal-footer
+                a.btn(href="#", data-dismiss="modal") Close
+                a.btn.btn-primary(href="#") Sign in
+        script(src="/static/js/jquery-1.7.2.js")
+        script(src="/static/js/bootstrap.js")
+        script(src="/static/js/custom.js")
