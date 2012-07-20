@@ -12,11 +12,6 @@ db.serialize(function() {
     stmt.finalize();
 });
 
-process.on("exit", function() {
-    console.log("Closing database.");
-    db.close();
-});
-
 app.configure(function() {
     app.use(express.static(__dirname + "/public"));
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
