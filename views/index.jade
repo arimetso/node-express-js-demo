@@ -17,7 +17,7 @@ html
                         - if (user)
                             a.btn.dropdown-toggle(data-toggle="dropdown", href="#")
                                 i.icon-user
-                                |&nbsp;Username&nbsp;
+                                |&nbsp;#{user.name}&nbsp;
                                 span.caret
                             ul.dropdown-menu
                                 li
@@ -43,7 +43,7 @@ html
                 button.close(data-dismiss="modal") &times;
                 h3 Sign in
             div.modal-body
-                form.form-horizontal
+                form#signin-form.form-horizontal(method="POST", action="/login")
                     fieldset
                         div.control-group
                             label.control-label(for="login_name") Login name
@@ -55,7 +55,7 @@ html
                                 input#login_passwd.input-large(type="password", name="login_passwd")
             div.modal-footer
                 a.btn(href="#", data-dismiss="modal") Close
-                a.btn.btn-primary(href="#") Sign in
+                a#signin-button.btn.btn-primary(href="#") Sign in
         script(src="/static/js/jquery-1.7.2.js")
         script(src="/static/js/bootstrap.js")
         script(src="/static/js/custom.js")
